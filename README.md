@@ -1,33 +1,139 @@
-### Social login flow:
+# MERN Stack Blog Application
 
-1. When user clicks on "SignIn" button, React contact "Clerk" & "Clerk" contacts Google/LinkedIn/GitHub etc servers
+## Project Overview
 
-2. Those servers verify User creadentials and send ID token(JWT token) back to "Clerk"
+This project was developed as part of my **Capstone Project**, where I built a full-stack blog application using the **MERN Stack (MongoDB, Express.js, React.js, and Node.js)**.
 
-3. "Clerk" creates session and allow the React app to get Social login user object with
-   hooks like useAuth(),useUser(), etc...
+The application allows users to read blog posts, comment on posts, and enables authors to create and manage blog content. It also includes **social login authentication** and **role-based access control** for users and authors.
 
-### With these above 3 steps social login is completed
+---
 
-4. The React app need to navigate to either "UserDashboard " or "AuthorDashboard" after successful login
+## Tech Stack
 
-5. This navigation will be based on "role" property of User object of "Blog app"
+**Frontend**
 
-   a. The Header component read user object from database
+* React.js
+* CSS / Bootstrap
+* Axios
 
-   b. When a User login for first time, no user obj existed in DB. In that time, the React app will redirect the user to "RoleSelection" component to select a role. After the role selection, it creates new user in DB with that specific role.
+**Backend**
 
-   c. If user already existed in DB, the React redirect to either "UserDashboard" or "AuthorDashboard" based on "role" property
+* Node.js
+* Express.js
 
-### With the above steps of 4 & 5 , USER or AUTHOR creation is completed###
+**Database**
 
-6. Actions of AUTHOR
-    a. Create new Blog post
-    b. Read all Blog posts
-    c. Update Blog post
-    d. Delete Blog post
+* MongoDB
 
-6. Actions of USER
-    a. Read Blog posts
-    b. Write comment for a Blog post
-   
+**Authentication**
+
+* Clerk (Social login with Google, LinkedIn, GitHub)
+
+---
+
+## Features
+
+* User authentication with **social login**
+* **Role-based access** (User / Author)
+* Create, read, update, and delete blog posts
+* Comment system for blog posts
+* Secure authentication using **JWT tokens**
+* Responsive user interface
+
+---
+
+## Social Login Flow
+
+1. When the user clicks on the **Sign In** button, the React application communicates with **Clerk** for authentication.
+2. Clerk connects with authentication providers such as **Google, LinkedIn, or GitHub**.
+3. These providers verify the user's credentials and return an **ID token (JWT)**.
+4. Clerk creates a session and allows the React application to access the authenticated user using hooks like **useAuth()** and **useUser()**.
+
+---
+
+## Role-Based Navigation
+
+After successful login, the application redirects the user based on their role stored in the database.
+
+* **User → User Dashboard**
+* **Author → Author Dashboard**
+
+### First-Time Login
+
+* If the user logs in for the first time, no user record exists in the database.
+* The application redirects the user to a **Role Selection page**.
+* The user selects either **User** or **Author**.
+* A new user record is then created in the database with the selected role.
+
+### Existing Users
+
+* If the user already exists in the database, they are redirected directly to their respective dashboard.
+
+---
+
+## Author Actions
+
+Authors can:
+
+* Create new blog posts
+* Read all blog posts
+* Update blog posts
+* Delete blog posts
+
+---
+
+## User Actions
+
+Users can:
+
+* Read blog posts
+* Comment on blog posts
+
+---
+
+## Installation
+
+Clone the repository
+
+git clone https://github.com/Revanth-432/Blog_App.git
+
+Navigate to the project folder
+
+cd Blog_App
+
+Install dependencies for backend
+
+cd backend
+npm install
+
+Install dependencies for frontend
+
+cd ../frontend
+npm install
+
+Start backend server
+
+cd ../backend
+npm start
+
+Start frontend
+
+cd ../frontend
+npm start
+
+---
+
+## Future Improvements
+
+* Blog search functionality
+* Like and share features
+* Image uploads for blog posts
+* Rich text editor for writing blogs
+
+---
+
+## Author
+
+**Revanth**
+
+Capstone Project – Full Stack MERN Application
